@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OpenTok First Look</title>
+</head>
+<body>
+  <style type="text/css">
+    .video {
+      width: 200px;
+      float: left;
+      background-color: #333;
+    }
+  </style>
+  
+  <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
+  <script>
+  var sessionId = '2_MX4wfn4yMDEyLTAyLTE4IDA1OjIwOjA2LjczOTc4NiswMDowMH4wLjk0OTY2Mzc2NTkzN34';
+  var token = 'devtoken';
+  
+  var session = TB.initSession(sessionId);
+  
+  session.connect(1127, token);
+  
+  session.addEventListener('sessionConnected', sessionConnected);
+  session.addEventListener('sessionDisconnected', sessionDisconnected);
+  session.addEventListener('streamCreated', streamCreated);
+  session.addEventListener('streamDestroyed', streamDestroyed);
+  session.addEventListener('connectionCreated', connectionCreated);
+  session.addEventListener('connectionDestroyed', connectionDestroyed);
+  
+  function sessionConnected(event) {
+    var publisher = session.publish('videobox1', { height: '480', width: '200'});
+  }
+  
+  function streamCreated(event) {
+    
+  }
+  
+  </script>
+  
+  <div class="video" id="videobox1">sdf</div>
+  <div class="video" id="videobox2">sdf</div>
+  <div class="video" id="videobox3">sdf</div>
+  <div class="video" id="videobox4">sdf</div>  
+</body>
+</html>
